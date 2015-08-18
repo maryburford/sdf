@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150815211459) do
+ActiveRecord::Schema.define(version: 20150817234137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip_code"
+    t.string   "pizza_beer"
+    t.string   "concept_reality"
+    t.string   "fact_fiction"
+    t.string   "theory_practice"
+    t.string   "moms_dads"
+    t.string   "sandles_socks"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "europe_paris"
+    t.string   "profile_photo"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,9 +49,11 @@ ActiveRecord::Schema.define(version: 20150815211459) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "user_name"
+    t.string   "profile_photo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "profiles", "users"
 end

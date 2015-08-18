@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  state: MyString
+  zip_code: 1
+  pizza_beer: MyString
+  concept_reality: MyString
+  fact_fiction: MyString
+  theory_practice: MyString
+  moms_dads: MyString
+  sandles_socks: MyString
+  user_id: 
+
+two:
+  city: MyString
+  state: MyString
+  zip_code: 1
+  pizza_beer: MyString
+  concept_reality: MyString
+  fact_fiction: MyString
+  theory_practice: MyString
+  moms_dads: MyString
+  sandles_socks: MyString
+  user_id: 

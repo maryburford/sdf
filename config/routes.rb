@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+    resources :profiles
+
    devise_for :users,  :controllers => { registrations: 'users/registrations' }
    devise_scope :user do
    authenticated :user do
-    root :to => 'home#index', as: :authenticated_root
+    root :to => 'profiles#new', as: :authenticated_root
   end
   unauthenticated :user do
     root :to => 'devise/registrations#new', as: :unauthenticated_root

@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+<%= current_user.user_name %>	
+<%= simple_form_for @profile do |f| %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :zip_code %>
+  <%= f.input :pizza_beer, :collection => ['Pizza','Beer','Both'], :label => 'Pizza or Beer' %>
+  <%= f.input :concept_reality, :collection => ['Concept','Reality','Both'], :label => 'Concept or Reality' %>
+  <%= f.input :fact_fiction, :collection => ['Fact','Fiction','Both'], :label => 'Fact or Fiction' %>
+  <%= f.input :pizza_beer, :collection => ['Theory','Practice','Both'], :label => 'Theory or Practice' %>
+  <%= f.input :europe_paris, :collection => ['Europe','Paris','Both'], :label => 'Europe or Paris' %>
+  <%= f.input :moms_dads, :collection => ['Moms','Dads','Both'], :label => 'Moms or Dads' %>
+  <%= f.input :sandles_socks, :collection => ['Sandles','Socks','Both'], :label => 'Sandles or Socks' %>
+  <%= f.file_field :profile_photo %>
+  <%= f.hidden_field :profile_photo_cache %>
+  <%= f.input :account_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+  <%= f.button :submit %>
+<% end %>
+
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %>
