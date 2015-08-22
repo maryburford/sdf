@@ -25,7 +25,6 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    binding.pry
     if params[:id]
       @profile = Profile.find(params[:id])
       @user = @profile.user
