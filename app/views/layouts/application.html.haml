@@ -33,8 +33,9 @@
       %ul.nav.navbar-nav
         - if current_user
           %li.hellomessage Hello, #{current_user.user_name.humanize}!
-          %li
-            = link_to 'Answer Shitty Questions', '#'
+          - if current_user.profile
+            %li
+              = link_to 'Answer Shitty Questions', edit_profile_path
           %li
             = link_to 'Browse Shitty Dudes', user_matches_path(current_user)
           %li

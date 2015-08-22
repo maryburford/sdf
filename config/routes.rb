@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :profiles
 
   devise_for :users,  :controllers => { registrations: 'users/registrations' }
+
   devise_scope :user do
 
     get '/users/matches/:id'  => 'users#matches', as: :user_matches
