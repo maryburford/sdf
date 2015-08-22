@@ -28,13 +28,14 @@ class ProfilesController < ApplicationController
     if params[:id]
       @profile = Profile.find(params[:id])
       @user = @profile.user
+
     else
       redirect_to new_profile_path
   end
 end
   def update
     @profile = Profile.find(params[:id])
-    @profile.update_attributes(params[:profile])
+    @profile.update!(profile_params)
     redirect_to :action => 'show', :id => @profile
     end
 

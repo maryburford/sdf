@@ -1,1 +1,15 @@
-fuckoff
+
+<div class = 'container'>
+<%= current_user.user_name %>	
+<%= simple_form_for @profile do |f| %>
+  <%= f.input :pizza_beer, :collection => ['Pizza','Beer','Both'], :label => 'Pizza or Beer' %>
+  <%= f.input :concept_reality, :collection => ['Concept','Reality','Both'], :label => 'Concept or Reality' %>
+  <%= f.input :fact_fiction, :collection => ['Fact','Fiction','Both'], :label => 'Fact or Fiction' %>
+  <%= f.input :pizza_beer, :collection => ['Theory','Practice','Both'], :label => 'Theory or Practice' %>
+  <%= f.input :europe_paris, :collection => ['Europe','Paris','Both'], :label => 'Europe or Paris' %>
+  <%= f.input :moms_dads, :collection => ['Moms','Dads','Both'], :label => 'Moms or Dads' %>
+  <%= f.input :sandles_socks, :collection => ['Sandles','Socks','Both'], :label => 'Sandles or Socks' %>
+  <%= f.input :account_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+  <%= f.button :submit %>
+<% end %>
+</div>
