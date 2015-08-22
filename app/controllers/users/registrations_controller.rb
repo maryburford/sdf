@@ -11,7 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
   
   def after_sign_up_path_for(user)
-    binding.pry
     new_profile_path
    end
 end

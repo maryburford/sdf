@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :profiles
 
   devise_for :users,  :controllers => { registrations: 'users/registrations' }
+
   devise_scope :user do
-  end
+  
 
   authenticated :user do
     root :to => 'profiles#show', as: :authenticated_root
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   unauthenticated :user do
     root :to => 'devise/registrations#new', as: :unauthenticated_root
   end
-
+end
 
   get 'users/:id/matches' => 'user#matches', as: :user_matches_path
 
