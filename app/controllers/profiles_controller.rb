@@ -15,7 +15,7 @@ end
 
 def show
 
-  @profile = Profile.find(params[:id])
+  @profile = Profile.find(current_user.id)
   @user = @profile.user
 end
 

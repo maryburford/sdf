@@ -1,3 +1,5 @@
+
+<div class = 'container'>
 <% if user_signed_in? %>
 <%= current_user.user_name %>	
 <%= simple_form_for @profile do |f| %>
@@ -25,3 +27,4 @@
   <%= link_to('Login', new_user_session_path)  %>  
   </li>
 <% end %>
+</div>
