@@ -3,17 +3,25 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-    resources :profiles
+  resources :profiles
 
-   devise_for :users,  :controllers => { registrations: 'users/registrations' }
-   devise_scope :user do
-   authenticated :user do
+  devise_for :users,  :controllers => { registrations: 'users/registrations' }
+  devise_scope :user do
+  end
+
+  authenticated :user do
     root :to => 'profiles#show', as: :authenticated_root
   end
+
   unauthenticated :user do
     root :to => 'devise/registrations#new', as: :unauthenticated_root
   end
-end
+
+
+  get 'users/:id/matches' => 'user#matches', as: :user_matches_path
+
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

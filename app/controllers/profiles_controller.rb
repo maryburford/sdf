@@ -1,23 +1,27 @@
 class ProfilesController < ApplicationController
 
 
-def new
-	@profile = Profile.new
-end
-def create
+  def new
+    @profile = Profile.new
+  end
 
-    @profile = Profile.new(profile_params)
-    if @profile.save
-      redirect_to @profile
+  def create
+      @profile = Profile.new(profile_params)
+      if @profile.save
+        redirect_to @profile
+      else
+      end
+  end
+
+  def show
+    if params[:id]
+      @profile = Profile.find(params[:id])
+      @user = @profile.user
     else
+      redirect_to new_profile_path
     end
-end
+  end
 
-def show
-
-  @profile = Profile.find(current_user.id)
-  @user = @profile.user
-end
 
   private
 
