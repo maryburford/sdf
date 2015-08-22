@@ -12,7 +12,6 @@
         = f.input :user_name, required: true
         = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable)
         = f.input :password_confirmation, required: true, autocomplete: "off"
-        = f.input :profile_photo
 
       <div class="form-actions">
       = f.button :submit, "Sign up"
