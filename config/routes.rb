@@ -7,18 +7,18 @@ Rails.application.routes.draw do
 
   devise_for :users,  :controllers => { registrations: 'users/registrations' }
   devise_scope :user do
+
+    get '/users/matches/:id'  => 'users#matches', as: :user_matches
+
+    authenticated :user do
+      root :to => 'profiles#show', as: :authenticated_root
+    end
+
+    unauthenticated :user do
+      root :to => 'devise/registrations#new', as: :unauthenticated_root
+    end
+
   end
-
-  authenticated :user do
-    root :to => 'profiles#show', as: :authenticated_root
-  end
-
-  unauthenticated :user do
-    root :to => 'devise/registrations#new', as: :unauthenticated_root
-  end
-
-
-  get 'users/:id/matches' => 'user#matches', as: :user_matches_path
 
 
 
