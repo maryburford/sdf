@@ -1,0 +1,22 @@
+.navbar-brand{
+	font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', 'sans serif';
+	font-size: 50px;
+	font-style: italics;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.3999996185303px;
+	font-color: red;
+
+	a{color: red;
+	  font-style: italic;
+	  font-size: 50px}
+}
+.navbar-default {
+   background-color: #000000 !important;
+    border-color: #E7E7E7 !important;
+   }
+
+.collapse navbar-collapse {
+background-color: #000000 !important;
+border-color: #E7E7E7 !important;
+}

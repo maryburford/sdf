@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>sdf</title>
+= javascript_include_tag 'application' 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' 
+= stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.0/bootstrap-social.min.css' 
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+= csrf_meta_tags
+= stylesheet_link_tag    'application', media: 'all' 
+</head>
+<body>
+.navbar.navbar-default{:role => 'navigation'}
+  .container-fluid
+    .navbar-header
+      .navbar-brand= link_to 'ShittyDudeFinder', '#'
+
+      %button.navbar-toggle{'type' => 'button', 'data-toggle' => "collapse",  'data-target' => "#navbartarget"}
+        %span.glyphicon.glyphicon-align-justify
+        %span.sr-only Toggle Only
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    .collapse.navbar-collapse#navbartarget{:role => 'navigation'}
+      %ul.nav.navbar-nav
+        - if current_user
+          %li.hellomessage Hello, #{current_user.user_name.humanize}!
+          %li
+            = link_to 'Answer Shitty Questions', "#"
+          %li
+            = link_to 'Browse Shitty Dudes', '#'
+          %li
+            = link_to 'Inbox', '#'
+          %li
+            = link_to 'Sign Out', destroy_user_session_path, method: :delete
+        - else
+          %li
+            = link_to 'Sign Up', new_user_registration_path
+          %li
+            = link_to 'Login', new_user_session_path
+</body>
+= yield 
+</html>
