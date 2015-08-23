@@ -4,5 +4,7 @@
 <%= simple_form_for @profile do |f| %>
   <%= f.input @questions[0][0], :collection => @questions[0][2], :label => @questions[0][1] %>
   <%= f.button :submit %>
+  binding.pry
+
 <% end %>
 </div>

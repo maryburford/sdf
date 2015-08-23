@@ -1,55 +1,57 @@
 class ProfilesController < ApplicationController
 
 
-  def new
-    @profile = Profile.new
+ def new
+ @profile = Profile.new
+ end
+
+ def create
+  @profile = Profile.new(profile_params)
+  @profile.user = current_user
+
+  if @profile.save
+  redirect_to @profile
+  else
   end
+ end
 
-  def create
-      @profile = Profile.new(profile_params)
-      @profile.user = current_user
+ def show
+ if current_user
+  @profile = Profile.find(current_user.profile.id)
+  @user = @profile.user
+ else
+  redirect_to new_profile_path
+ end
+ end
 
-      if @profile.save
-        redirect_to @profile
-      else
-      end
-  end
+ def edit
+ @questions = Profile::QUESTIONS.sample(30)
 
-  def show
-    if current_user
-      @profile = Profile.find(current_user.profile.id)
-      @user = @profile.user
-    else
-      redirect_to new_profile_path
-    end
-  end
 
-  def edit
-    @questions = Profile::QUESTIONS.sample(2)
+ if current_user
+  @profile = Profile.find(current_user.profile.id)
+  @user = @profile.user
 
-    if current_user
-      @profile = Profile.find(current_user.profile.id)
-      @user = @profile.user
-
-    else
-      redirect_to new_profile_path
-    end
+ else
+  redirect_to new_profile_path
+ end
 end
 
 
-  def update
-    @profile = Profile.find(params[:id])
-    @profile.update!(profile_params)
-    redirect_to :action => 'edit', :id => @profile
-    end
+ def update
+ @profile = Profile.find(params[:id])
+ @profile.update!(profile_params)
+
+ redirect_to :action => 'edit',:id => @profile
+ end
 
 
 
-  private
+ private
 
-  def profile_params
-    params.require(:profile).permit(:id, :city, :state, :zip_code, :pizza_beer, :concept_reality, :fact_fiction, :theory_practice, :moms_dads, :sandles_socks, :user_id, :created_at, :updated_at, :europe_paris, :profile_photo)
-  end
+ def profile_params
+ params.require(:profile).permit(:id,:city,:state,:zip_code,:pizza_beer,:concept_reality,:fact_fiction,:theory_practice,:moms_dads,:sandles_socks,:user_id,:created_at,:updated_at,:europe_paris,:profile_photo,:drugs,:trucks,:sleater_kelly,:isp,:crew,:more_less,:reggae_mouse,:jobs,:pets_cats,:red_white,:sport_ball,:meat_murder,:art_commerce,:butler_judith,:fleetwood_mcdonalds,:skate_die,:sanders,:midwest_east,:modest_eek,:pride_prejudice,:dwi_dui,:show_tell,:pat_vanna)
+ end
 
 end
 
