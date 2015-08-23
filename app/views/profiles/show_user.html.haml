@@ -1,0 +1,7 @@
+
+"#{@user.user_name}"
+= link_to "Message #{@user.user_name}", new_message_path({receiver_id: @user.id})
+- if defined? @profile.profile_photo
+	= image_tag "#{@profile.profile_photo}"
+- else
+	fuck

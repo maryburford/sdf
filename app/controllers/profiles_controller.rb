@@ -24,6 +24,13 @@ class ProfilesController < ApplicationController
  end
  end
 
+def show_user
+@profile = Profile.find(params[:id])
+@user = @profile.user
+end
+
+
+
  def edit
  @questions = Profile::QUESTIONS.sample(30)
 

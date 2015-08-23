@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     unauthenticated :user do
       root :to => 'devise/registrations#new', as: :unauthenticated_root
     end
-post '/profiles/:id(.:format)' => 'profiles#update_photo'
+    post '/profiles/:id(.:format)' => 'profiles#update_photo'
+    get '/profiles/show_user/:id(.:format)' => 'profiles#show_user'
+  #  post '/messages/new' => 'messages#create'
   end
 
 

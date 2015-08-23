@@ -39,7 +39,7 @@
           %li
             = link_to 'Browse Shitty Dudes', user_matches_path(current_user)
           %li
-            = link_to 'Inbox', '#'
+            = link_to 'Inbox', messages_path(:mailbox=>:inbox)
           %li
             = link_to 'Sign Out', destroy_user_session_path, method: :delete
         - else
