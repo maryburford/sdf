@@ -35,7 +35,7 @@
           %li.hellomessage Hello, #{current_user.user_name.humanize}!
           - if current_user.profile
             %li
-              = link_to 'Answer Shitty Questions', edit_profile_path
+              = link_to 'Answer Shitty Questions', edit_profile_path(current_user)
           %li
             = link_to 'Browse Shitty Dudes', user_matches_path(current_user)
           %li

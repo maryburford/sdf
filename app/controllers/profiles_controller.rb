@@ -16,8 +16,8 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    if params[:id]
-      @profile = Profile.find(params[:id])
+    if current_user
+      @profile = Profile.find(current_user.profile.id)
       @user = @profile.user
     else
       redirect_to new_profile_path
@@ -25,18 +25,22 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    if params[:id]
-      @profile = Profile.find(params[:id])
+    @questions = Profile::QUESTIONS.sample(2)
+
+    if current_user
+      @profile = Profile.find(current_user.profile.id)
       @user = @profile.user
 
     else
       redirect_to new_profile_path
-  end
+    end
 end
+
+
   def update
     @profile = Profile.find(params[:id])
     @profile.update!(profile_params)
-    redirect_to :action => 'show', :id => @profile
+    redirect_to :action => 'edit', :id => @profile
     end
 
 
