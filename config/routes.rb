@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :profiles
+  resources :messages
 
   devise_for :users,  :controllers => { registrations: 'users/registrations' }
 
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
     unauthenticated :user do
       root :to => 'devise/registrations#new', as: :unauthenticated_root
     end
-
+post '/profiles/:id(.:format)' => 'profiles#update_photo'
   end
 
 

@@ -44,7 +44,11 @@ end
  redirect_to :action => 'edit',:id => Profile.find(current_user.profile.id)
  end
 
-
+ def update_photo
+ @profile = Profile.find(params[:id])
+ @profile.update!(profile_params)
+ redirect_to :action => 'show',:id => Profile.find(current_user.profile.id)
+ end
 
  private
 
