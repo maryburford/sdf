@@ -41,8 +41,7 @@ end
  def update
  @profile = Profile.find(params[:id])
  @profile.update!(profile_params)
-
- redirect_to :action => 'edit',:id => @profile
+ redirect_to :action => 'edit',:id => Profile.find(current_user.profile.id)
  end
 
 

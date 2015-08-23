@@ -7,7 +7,7 @@ class Profile < ActiveRecord::Base
 [:drugs, "Drugs or Marijuana?", ["Drugs","Marijuana","Neither"]], 
 [:concept_reality, "Concept or Reality?", ["Concept","Reality","Both"]], 
 [:moms_dads, "Moms or Dads?", ["Moms","Dads","Both"]], 
-[:socks_sandals, "Socks or Sandals?", ["Socks","Sandals","Both"]], 
+[:sandles_socks, "Socks or Sandals?", ["Socks","Sandals","Both"]], 
 [:europe_paris, "Europe or Paris?", ["Europe","Paris","Both"]], 
 [:trucks, "Trucks or Four Wheelers?", ["Trucks","Four Wheelers","Both"]], 
 [:sleater_kelly, "Sleater Kinney or Kelly Slater?", ["Sleater Kinney","Kelly Slater","Both"]], 
