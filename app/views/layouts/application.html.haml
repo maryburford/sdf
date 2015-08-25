@@ -21,7 +21,11 @@
 .navbar.navbar-default{:role => 'navigation'}
   .container-fluid
     .navbar-header
-      .navbar-brand= link_to 'ShittyDudeFinder', '#'
+      - if current_user
+        .navbar-brand= link_to 'ShittyDudeFinder', authenticated_root_path
+      - else
+        .navbar-brand= link_to 'ShittyDudeFinder', unauthenticated_root_path
+
 
       %button.navbar-toggle{'type' => 'button', 'data-toggle' => "collapse",  'data-target' => "#navbartarget"}
         %span.glyphicon.glyphicon-align-justify
