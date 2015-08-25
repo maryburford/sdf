@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     post '/profiles/:id(.:format)' => 'profiles#update_photo'
     get '/profiles/show_user/:id(.:format)' => 'profiles#show_user', :as => :profiles_show
     get '/profiles/shitty_answers/:id(.:format)' => 'profiles#shitty_answers', :as => :answers_show
+    get '/profiles/user_answers/:id(.:format)' => 'profiles#user_answers', :as => :user_answers_show
   #  post '/messages/new' => 'messages#create'
   end
 
