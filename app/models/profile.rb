@@ -90,5 +90,12 @@ class Profile < ActiveRecord::Base
 [:preteen_tween, "Preteen or Tween?", ["Preteen","Tween","Both"]],
 [:neither_either, "Neither or Either?", ["Neither","Either","Both"]],
 [:rock_lock, "Pop Rock or Pop Lock?",["Pop Rock","Pop Lock","Both"]],
+[:tang_capri, "Tang or Capri Sun?",["Tang","Capri Sun","Both"]],
+[:pool_ball, "Pool Cue or Cue Ball?",["Pool Cue","Cue Ball","Both"]],
+[:golf_fishing, "Golf or Fishing?",["Golf","Fishing","Neither"]],
+[:duck_goose, "Duck or Goose?",["Duck","Goose","Both"]],
+[:red_blue, "Red Pill or Blue Pill?",["Red Pill","Blue Pill","Both"]],
+[:love_hate, "I Love You or I Hate You?",["I Love You","I Hate You","Both"]],
+[:vim_emacs, "Vim or Emacs?",["Vim","Emacs","Neither"]],
   ]
 end
