@@ -1,5 +1,7 @@
-- @questions.each do |q|
-	= simple_form_for @profile,  :html => {:class => 'input-group col-sm-12' } do |f|
-		= f.input q[0], label: q[1], as: :check_boxes, collection: q[2], :disabled => true
+.container
+  .user_answers
+    - @questions.each do |q|
+      = simple_form_for @profile,  :html => {:class => 'input-group col-sm-12 col-lg-12 form-horizontal'} do |f|
+        = f.input q[0], label: q[1], as: :check_boxes, collection: q[2], :disabled => true
 
 
