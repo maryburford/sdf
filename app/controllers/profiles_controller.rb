@@ -51,6 +51,12 @@ end
  redirect_to :action => 'edit',:id => Profile.find(current_user.profile.id)
  end
 
+  def shitty_answers
+    @profile = Profile.find(current_user.profile.id)
+
+    @questions = Profile::QUESTIONS.sample(30)
+  end
+
  def update_photo
  @profile = Profile.find(params[:id])
  @profile.update!(profile_params)

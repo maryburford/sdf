@@ -1,0 +1,4 @@
+=simple_form_for @profile do |f|
+
+	= f.collection_radio_buttons(:jobs,  [['one job', 'one job'] ,['two jobs', 'two jobs']], :first, :last ) 
+	do |b| b.label { b.radio_button + b.text }
