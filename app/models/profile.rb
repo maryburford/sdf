@@ -101,5 +101,9 @@ class Profile < ActiveRecord::Base
 [:desert_tundra], "Desert or Tundra?",["Desert","Tundra","Both"]],
 [:green_ice], "Greenland or Iceland?",["Greenland","Iceland","Both"]],
 [:ball_meth], "Crystal Ball or Crystal Meth?",["Crystal Ball","Crystal Meth","Both"]],
+[:bye_riddance], "Good Bye or Good Riddance?",["Good Bye","Good Riddance","Both"]],
+[:aliefs_beliefs], "Aliefs or Beliefs?",["Aliefs","Beliefs","Both"]],
+[:gophers_groundhogs], "Gophers or Groundhogs?",["Gophers","Groundhogs","Both"]],
+[:felony_misdemeanor], "Felony or Misdemeanor?",["Felony","Misdemeanor","Both"]],
   ]
 end
