@@ -88,6 +88,7 @@ class Profile < ActiveRecord::Base
 [:protoplasm_ectoplasm, "Protoplasm or Ectoplasm?", ["Protoplasm","Ectoplasm","Both"]],
 [:liberty_diving, "Libery Bell or Diving Bell?", ["Liberty Bell","Diving Bell","Both"]],
 [:preteen_tween, "Preteen or Tween?", ["Preteen","Tween","Both"]],
-[:neither_either, "Neither or Either?", ["Neither","Either","Both"]]
+[:neither_either, "Neither or Either?", ["Neither","Either","Both"]],
+[:rock_lock, "Pop Rock or Pop Lock?",["Pop Rock","Pop Lock","Both"]],
   ]
 end
