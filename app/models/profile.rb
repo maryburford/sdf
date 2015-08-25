@@ -97,5 +97,9 @@ class Profile < ActiveRecord::Base
 [:red_blue, "Red Pill or Blue Pill?",["Red Pill","Blue Pill","Both"]],
 [:love_hate, "I Love You or I Hate You?",["I Love You","I Hate You","Both"]],
 [:vim_emacs, "Vim or Emacs?",["Vim","Emacs","Neither"]],
+[:york_jersey, "New York or New Jersey?",["New York","New Jersey","Neither"]],
+[:desert_tundra], "Desert or Tundra?",["Desert","Tundra","Both"]],
+[:green_ice], "Greenland or Iceland?",["Greenland","Iceland","Both"]],
+[:ball_meth], "Crystal Ball or Crystal Meth?",["Crystal Ball","Crystal Meth","Both"]],
   ]
 end
