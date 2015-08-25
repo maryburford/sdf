@@ -1,12 +1,29 @@
 .halfsize {
 	 width: 100%;
+   font-size: 150%;
 }
 
 .profile_image{
 	max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .profile_padding{
 	cell-padding: 50px;
 	cell-spacing: 10px;
+  padding-bottom: 15px;
+}
+
+.matches {
+  .row {
+    border-width: 5px;
+    border-style: solid;
+    border-color: pink;
+
+    .user_name {
+      text-align: center;
+    }
+
+  }
 }

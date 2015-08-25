@@ -1,15 +1,19 @@
 .container
-	.halfsize
-		<p>hey #{current_user.user_name} here are your matches </p>
+  .halfsize.col-md-6.col-sm-1.col-md-offset-3
+    <p>Hey, #{current_user.user_name.humanize}! Here are your matches: </p>
 
-		- @random_users.each do |user|
+  .matches.col-md-6.col-sm-1.col-md-offset-3
+    - @random_users.each do |user|
+      .row
+        - if user.profile_photo.present?
+          .user_name
+            = link_to "#{user.user_name}", profiles_show_path(:id => user.profile.id)
+          .profile_image
+            = link_to image_tag(user.profile.profile_photo, size: "300x300"), profiles_show_path(:id => user.profile.id)
+        - else
+          .user_name
+            = link_to "#{user.user_name}", profiles_show_path(:id => user.profile.id)
+          .profile_image
+            = link_to image_tag("default_profile_photo", size: "300x300"),profiles_show_path(:id => user.profile.id)
+      %br
 
-			- if user.profile_photo.present?
-
-				=link_to "#{user.id}", profiles_show_path(:id => user.profile.id)
-				=link_to image_tag(user.profile_photo), profiles_show_path(:id => user.profile.id)
-				
-			- else
-				
-				=link_to "#{user.id}", profiles_show_path(:id => user.profile.id)
-				=link_to image_tag("default_profile_photo"),profiles_show_path(:id => user.profile.id)

@@ -1,8 +1,17 @@
+.col-md-6.col-sm-1.col-md-offset-3
+  .intro-text
+    %h3 This is #{@user.user_name}.
 
-This is "#{@user.user_name}"
-= link_to "Message #{@user.user_name}", new_message_path({receiver_id: @user.id})
-= link_to "#{@user.user_name}'s Answers", user_answers_show_path({id: @user.profile.id})
-- if defined? @profile.profile_photo
-	= image_tag "#{@profile.profile_photo}"
-- else
-	fuck
+  %br
+  .message-link
+    = link_to '', new_message_path({receiver_id: @user.id}), class: "glyphicon glyphicon-envelope"
+  %br
+  .answers-show-link
+    = link_to "#{@user.user_name}'s Answers", user_answers_show_path({id: @user.profile.id})
+
+  %br
+  - if defined? @profile.profile_photo
+    = image_tag "#{@profile.profile_photo}", size: "300x300"
+  - else
+    = image_tag("default_profile_photo", size: "300x300")
+

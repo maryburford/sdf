@@ -3,7 +3,7 @@
 	<div class="col-md-6">
 	<p class='user_name'>My Profile</p>
 	- if @profile.profile_photo
-		= image_tag "#{@profile.profile_photo}", :class => "profile_image"
+		= image_tag "#{@profile.profile_photo}", :class => "profile_image", size: "300x300"
 		<p class='upload_image'>Change profile photo</p>
 		= simple_form_for @profile,:method => 'update_photo', :html =>  { :multipart => true } do |f| 
 			= f.file_field :profile_photo
