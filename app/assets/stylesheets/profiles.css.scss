@@ -1,3 +1,16 @@
 // Place all the styles related to the profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile_image{
+	max-width: 300px;
+}
+.user_name{
+	color: red;
+	font-size: 24px;
+}
+
+.upload_image{
+	color: red;
+	font-size: 18px;
+}
