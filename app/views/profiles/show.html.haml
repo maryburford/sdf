@@ -5,7 +5,7 @@
 	- if @profile.profile_photo
 		= image_tag "#{@profile.profile_photo}", :class => "profile_image"
 		<p class='upload_image'>Change profile photo</p>
-		= simple_form_for @profile,:method => 'update_photo' do |f| 
+		= simple_form_for @profile,:method => 'update_photo', :html =>  { :multipart => true } do |f| 
 			= f.file_field :profile_photo
 			= f.hidden_field :profile_photo_cache 
 			= f.input :account_id, :as => :hidden, :input_html => { :value => current_user.id }

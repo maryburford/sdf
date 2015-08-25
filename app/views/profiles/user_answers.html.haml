@@ -1,5 +1,5 @@
 - @questions.each do |q|
-	= simple_form_for @profile,  :html => {:class => '.table-striped' } do |f|
+	= simple_form_for @profile,  :html => {:class => 'input-group col-sm-12' } do |f|
 		= f.input q[0], label: q[1], as: :check_boxes, collection: q[2], :disabled => true
 
 

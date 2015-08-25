@@ -69,6 +69,12 @@ def user_answers
  redirect_to :action => 'show',:id => Profile.find(current_user.profile.id)
  end
 
+def remove_photo
+  profile = Profile.find(current_user.profile.id)
+  profile.remove_profile_photo! if profile
+  redirect_to :action => 'show',:id => Profile.find(current_user.profile.id)
+
+end
  private
 
  def profile_params
