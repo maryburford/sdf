@@ -1,6 +1,10 @@
 .user_answers {
-  .checkbox {
-    display: inline;
-  }
+  .check_boxes {
+    padding-right: 15px;
 
+    .checkbox {
+      display: inline;
+      padding-right: 15px;
+    }
+  }
 }

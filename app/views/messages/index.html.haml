@@ -1,13 +1,14 @@
-.col-sm-12.col-md-4.col-md-offset-4
-  %h1 Messages
-  - if params[:mailbox] == 'inbox'
+.container
+  .col-sm-12.col-md-4.col-md-offset-4
+    %h1 Messages
+    - if params[:mailbox] == 'inbox'
+      %strong= link_to 'Sent Messages', messages_path(:mailbox=>:sent)
+    - if params[:mailbox] == 'sent'
+      %strong= link_to 'Received Messages', messages_path(:mailbox=>:inbox)
     - @messages.each do |m|
-      #{m.id}
-      #{m.body}
-
-    %strong= link_to 'Sent Messages', messages_path(:mailbox=>:sent)
-  - if params[:mailbox] == 'sent'
-    %strong= link_to 'Received Messages', messages_path(:mailbox=>:inbox)
+      %p #{m.id}
+      %p #{m.body}
+      %hr
 
 
 

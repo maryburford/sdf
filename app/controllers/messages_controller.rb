@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
 
     if @message.save
       flash[:notice] = "Your message has been sent!"
-      redirect_to messages_path
+      redirect_to messages_path(:mailbox=>:inbox)
     else
       render :action => :new
     end
@@ -36,27 +36,27 @@ class MessagesController < ApplicationController
 
   def index
    if params[:mailbox] == "sent"
-     @messages = @user.sent_messages
+     @messages = current_user.sent_messages
    elsif params[:mailbox] == "inbox"
-     @messages = @user.received_messages
+     @messages = current_user.received_messages
    #elsif params[:mailbox] == "archieved"
     # @messages = @user.archived_messages
    end
   end
 
   def show
-    @message = Message.readingmessage(params[:id],@user.user_id)
+    @message = Message.readingmessage(params[:id],current_user.user_id)
   end
 
   def delete_multiple
     if params[:delete]
       params[:delete].each { |id|
         @message = Message.find(id)
-        @message.mark_message_deleted(@message.id,@user.user_id) unless @message.nil?
+        @message.mark_message_deleted(@message.id,current_user.user_id) unless @message.nil?
         }
       flash[:notice] = "Messages deleted"
     end
-    redirect_to user_messages_path(@user, @messages)
+    redirect_to user_messages_path(current_user, @messages)
   end
 
   private

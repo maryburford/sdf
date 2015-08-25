@@ -1,13 +1,14 @@
-.col-sm-12.col-md-4.col-md-offset-4
-  %h1 Create a new message
+.container
+  .col-sm-12.col-md-4.col-md-offset-4
+    %h1 Create a new message
 
-  = simple_form_for( @message, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } } ) do |f|
-    = f.error_notification
-    .form-inputs
-      = f.input :subject
-      %br
-      = f.input :body
-      = f.input :sender_id, :as => :hidden, :input_html => { :value => current_user.id } 
-      = f.input :receiver_id, :as => :hidden, :input_html => { :value => params[:receiver_id] }
-    .form-actions
-      = f.button :submit
+    = simple_form_for( @message, :defaults => { :wrapper_html => {:class => 'form-group'}, :input_html => { :class => 'form-control' } } ) do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :subject
+        %br
+        = f.input :body
+        = f.input :sender_id, :as => :hidden, :input_html => { :value => current_user.id } 
+        = f.input :receiver_id, :as => :hidden, :input_html => { :value => params[:receiver_id] }
+      .form-actions
+        = f.button :submit

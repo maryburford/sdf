@@ -10,8 +10,9 @@
     = link_to "#{@user.user_name}'s Answers", user_answers_show_path({id: @user.profile.id})
 
   %br
-  - if defined? @profile.profile_photo
-    = image_tag "#{@profile.profile_photo}", size: "300x300"
-  - else
-    = image_tag("default_profile_photo", size: "300x300")
+  .profile_image
+    - if defined? @profile.profile_photo
+      = image_tag "#{@profile.profile_photo}", size: "300x300"
+    - else
+      = image_tag("default_profile_photo", size: "300x300")
 
