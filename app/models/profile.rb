@@ -3,7 +3,7 @@ class Profile < ActiveRecord::Base
   mount_uploader :profile_photo, ProfilePhotoUploader
 
    QUESTIONS = [
-[:pizza_beer, "Pizza  or Beer?", ["Pizza","Beer","Both"]],
+[:pizza_beer, "Pizza or Beer?", ["Pizza","Beer","Both"]],
 [:drugs, "Drugs or Marijuana?", ["Drugs","Marijuana","Neither"]],
 [:concept_reality, "Concept or Reality?", ["Concept","Reality","Both"]],
 [:moms_dads, "Moms or Dads?", ["Moms","Dads","Both"]],
@@ -82,5 +82,12 @@ class Profile < ActiveRecord::Base
 [:eeny_meeny, "Eeny Meeny or Miny Moe?", ["Eeny Meeny","Miny Moe","Both"]],
 [:chicken_egg, "Chicken or Egg?", ["Chicken","Egg","Both"]],
 [:calvin_hobbes, "Calvin or Hobbes?", ["Calvin","Hobbes","Both"]],
+[:space, "Space or  ?", ["Space"," ","Both"]],
+[:beard_moustache, "Beard or Moustache?", ["Beard","Moustache","Both"]],
+[:beard_bread, "Beard or Bread?", ["Beard","Bread","Both"]],
+[:protoplasm_ectoplasm, "Protoplasm or Ectoplasm?", ["Protoplasm","Ectoplasm","Both"]],
+[:liberty_diving, "Libery Bell or Diving Bell?", ["Liberty Bell","Diving Bell","Both"]],
+[:preteen_tween, "Preteen or Tween?", ["Preteen","Tween","Both"]],
+[:neither_either, "Neither or Either?", ["Neither","Either","Both"]]
   ]
 end
