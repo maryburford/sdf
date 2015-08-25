@@ -113,7 +113,7 @@ class Profile < ActiveRecord::Base
 [:vinyl_flac, "Vinyl or Flac?", ["Vinyl","FLAC","Neither"]], 
 [:yes_no, "Yes or No?", ["Yes","No","Both"]], 
 [:hbo_Sho, "HBO or Showtime?", ["HBO","Showtime","Neither"]], 
-[:privelage, "Privelage or Responsibility?", ["Privelage ","Responsibility","Both"]], 
+[:privelage, "Privilege or Responsibility?", ["Privilege ","Responsibility","Both"]], 
 [:business_pleasure, "Business or Pleasure?", ["Business","Pleasure","Neither"]], 
 [:liquor_before, "Liquor before Beer or Beer before Liquor?", ["Liquor before Beer","Beer before Liquor","Both"]], 
 [:sunrise_set, "Sunrise or Sunset?", ["Sunrise","Sunset","Both"]], 
