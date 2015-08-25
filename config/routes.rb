@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       root :to => 'devise/registrations#new', as: :unauthenticated_root
     end
     post '/profiles/:id(.:format)' => 'profiles#update_photo'
-    get '/profiles/show_user/:id(.:format)' => 'profiles#show_user'
+    get '/profiles/show_user/:id(.:format)' => 'profiles#show_user', :as => :profiles_show
   #  post '/messages/new' => 'messages#create'
   end
 

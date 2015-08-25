@@ -1,9 +1,15 @@
-- @random_users.each do |user|
-  user_name: "#{user.user_name}"
-  - if user.profile_photo.present?
-    =image_tag "#{user.profile_photo}"
-  - else
-    empty
-    =image_tag("default_profile_photo")
-  link_to account['id'],show_path,{:id => account['id']}
+.container
+	.halfsize
+		<p>hey "#{current_user.user_name}" here are your matches </p>
 
+		- @random_users.each do |user|
+
+			- if user.profile_photo.present?
+
+				=link_to "#{user.id}", profiles_show_path(:id => user.id)
+				=link_to image_tag(user.profile_photo), profiles_show_path(:id => user.id)
+				
+			- else
+				
+				=link_to "#{user.id}", profiles_show_path(:id => user.id)
+				=link_to image_tag("default_profile_photo"),profiles_show_path(:id => user.id)

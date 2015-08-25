@@ -2,7 +2,7 @@
 .container
 	<div class="col-md-6">
 	<p class='user_name'>My Profile</p>
-	- if @profile.user.profile_photo
+	- if @profile.profile_photo
 		= image_tag "#{@profile.profile_photo}", :class => "profile_image"
 		<p class='upload_image'>Change profile photo</p>
 		= simple_form_for @profile,:method => 'update_photo' do |f| 
