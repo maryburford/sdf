@@ -7,12 +7,18 @@
     = link_to '', new_message_path({receiver_id: @user.id}), class: "glyphicon glyphicon-envelope"
   %br
   .answers-show-link
-    = link_to "#{@user.user_name}'s Answers", user_answers_show_path({id: @user.profile.id})
+    = link_to "#{@user.user_name}'s Shitty Answers", user_answers_show_path({id: @user.profile.id})
 
   %br
   .profile_image
-    - if defined? @profile.profile_photo
+    - if @profile.profile_photo.present?
       = image_tag "#{@profile.profile_photo}", size: "300x300"
     - else
-      = image_tag("default_profile_photo", size: "300x300")
-
+      = image_tag("default_profile_photo.png")
+  %br
+  .profile_bio
+  - if defined? @profile.bio
+    <center>
+    <b>In 69 characters or less:</b>
+    = "#{@profile.bio}"
+    </center>
