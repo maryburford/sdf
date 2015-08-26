@@ -14,6 +14,6 @@
           .user_name
             = link_to "#{user.user_name}", profiles_show_path(:id => user.profile.id)
           .profile_image
-            = link_to image_tag("default_profile_photo", size: "300x300"),profiles_show_path(:id => user.profile.id)
+            = link_to image_tag("default_profile_photo.png", size: "300x300"),profiles_show_path(:id => user.profile.id)
       %br
 
