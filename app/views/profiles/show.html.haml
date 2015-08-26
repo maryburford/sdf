@@ -3,7 +3,7 @@
 	.row
 		.col-md-4
 			<p class='user_name'>My Profile</p>
-			- if @profile_photo.present?
+			- if @profile.profile_photo.present?
 				= image_tag "#{@profile.profile_photo}", :class => "profile_image", size: "300x300"
 				<p class='upload_image'>Change profile photo</p>
 				= simple_form_for @profile,:method => 'update_photo', :html =>  { :multipart => true } do |f| 
@@ -12,8 +12,6 @@
 					= f.input :account_id, :as => :hidden, :input_html => { :value => current_user.id }
 					= f.button :submit, "Update Photo"
 			- else
-
-				
 				= image_tag("default_profile_photo.png")
 				= simple_form_for @profile,:method => 'update_photo' do |f| 
 					= f.file_field :profile_photo
