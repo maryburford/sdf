@@ -2,6 +2,8 @@
 
 class ProfilePhotoUploader < CarrierWave::Uploader::Base
 
+  storage :fog
+
   def cache_dir
        "#{Rails.root}/tmp/uploads"
     end
