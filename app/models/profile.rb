@@ -3,7 +3,7 @@ class Profile < ActiveRecord::Base
   mount_uploader :profile_photo, ProfilePhotoUploader
 
    QUESTIONS = [
-[:pizza_beer, "Pizza  or Beer?", ["Pizza","Beer","Both"]],
+[:pizza_beer, "Pizza or Beer?", ["Pizza","Beer","Both"]],
 [:drugs, "Drugs or Marijuana?", ["Drugs","Marijuana","Neither"]],
 [:concept_reality, "Concept or Reality?", ["Concept","Reality","Both"]],
 [:moms_dads, "Moms or Dads?", ["Moms","Dads","Both"]],
@@ -82,5 +82,28 @@ class Profile < ActiveRecord::Base
 [:eeny_meeny, "Eeny Meeny or Miny Moe?", ["Eeny Meeny","Miny Moe","Both"]],
 [:chicken_egg, "Chicken or Egg?", ["Chicken","Egg","Both"]],
 [:calvin_hobbes, "Calvin or Hobbes?", ["Calvin","Hobbes","Both"]],
+[:space, "Space or  ?", ["Space"," ","Both"]],
+[:beard_moustache, "Beard or Moustache?", ["Beard","Moustache","Both"]],
+[:beard_bread, "Beard or Bread?", ["Beard","Bread","Both"]],
+[:protoplasm_ectoplasm, "Protoplasm or Ectoplasm?", ["Protoplasm","Ectoplasm","Both"]],
+[:liberty_diving, "Libery Bell or Diving Bell?", ["Liberty Bell","Diving Bell","Both"]],
+[:preteen_tween, "Preteen or Tween?", ["Preteen","Tween","Both"]],
+[:neither_either, "Neither or Either?", ["Neither","Either","Both"]],
+[:rock_lock, "Pop Rock or Pop Lock?",["Pop Rock","Pop Lock","Both"]],
+[:tang_capri, "Tang or Capri Sun?",["Tang","Capri Sun","Both"]],
+[:pool_ball, "Pool Cue or Cue Ball?",["Pool Cue","Cue Ball","Both"]],
+[:golf_fishing, "Golf or Fishing?",["Golf","Fishing","Neither"]],
+[:duck_goose, "Duck or Goose?",["Duck","Goose","Both"]],
+[:red_blue, "Red Pill or Blue Pill?",["Red Pill","Blue Pill","Both"]],
+[:love_hate, "I Love You or I Hate You?",["I Love You","I Hate You","Both"]],
+[:vim_emacs, "Vim or Emacs?",["Vim","Emacs","Neither"]],
+[:york_jersey, "New York or New Jersey?",["New York","New Jersey","Neither"]],
+[:desert_tundra], "Desert or Tundra?",["Desert","Tundra","Both"]],
+[:green_ice], "Greenland or Iceland?",["Greenland","Iceland","Both"]],
+[:ball_meth], "Crystal Ball or Crystal Meth?",["Crystal Ball","Crystal Meth","Both"]],
+[:bye_riddance], "Good Bye or Good Riddance?",["Good Bye","Good Riddance","Both"]],
+[:aliefs_beliefs], "Aliefs or Beliefs?",["Aliefs","Beliefs","Both"]],
+[:gophers_groundhogs], "Gophers or Groundhogs?",["Gophers","Groundhogs","Both"]],
+[:felony_misdemeanor], "Felony or Misdemeanor?",["Felony","Misdemeanor","Both"]],
   ]
 end
