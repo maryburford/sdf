@@ -75,6 +75,11 @@ def remove_photo
   redirect_to :action => 'show',:id => Profile.find(current_user.profile.id)
 
 end
+
+def destroy
+  @profile = Profile.find(current_user.profile.id)
+  @profile.bio.destroy
+end
  private
 
  def profile_params

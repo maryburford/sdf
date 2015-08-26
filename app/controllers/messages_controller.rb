@@ -48,12 +48,9 @@ class MessagesController < ApplicationController
     @message = Message.readingmessage(params[:id],current_user.user_id)
   end
 
-  def delete_multiple
+  def delete
     if params[:delete]
-      params[:delete].each { |id|
-        @message = Message.find(id)
-        @message.mark_message_deleted(@message.id,current_user.user_id) unless @message.nil?
-        }
+      Message.destroy(params[:id])
       flash[:notice] = "Messages deleted"
     end
     redirect_to user_messages_path(current_user, @messages)

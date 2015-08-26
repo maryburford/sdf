@@ -6,8 +6,16 @@
     - if params[:mailbox] == 'sent'
       %strong= link_to 'Received Messages', messages_path(:mailbox=>:inbox)
     - @messages.each do |m|
-      %p #{m.id}
-      %p #{m.body}
+      %p From: #{User.find(m.sender_id).user_name}
+      %p To: #{User.find(m.receiver_id).user_name}
+
+      %p Message: #{m.body}
+      %button.btn.btn-small
+        = link_to 'Reply', new_message_path(reply_to: m.id)
+
+
+
+      %hr
       %hr
 
 

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     get '/profiles/show_user/:id(.:format)' => 'profiles#show_user', :as => :profiles_show
     get '/profiles/shitty_answers/:id(.:format)' => 'profiles#shitty_answers', :as => :answers_show
     get '/profiles/user_answers/:id(.:format)' => 'profiles#user_answers', :as => :user_answers_show
+    delete '/profiles/show_user/:id(.:format)' => 'profiles#destroy', :as => :destory
   #  post '/messages/new' => 'messages#create'
   end
 

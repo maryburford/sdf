@@ -2,50 +2,57 @@
 
 class ProfilePhotoUploader < CarrierWave::Uploader::Base
 
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  def cache_dir
+       "#{Rails.root}/tmp/uploads"
+    end
 
-  # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
-
-  # Override the directory where uploaded files will be stored.
+  # Override the directory where uploaded files will be stored.   
   # This is a sensible default for uploaders that are meant to be mounted:
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+    def store_dir
+      "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  # def default_url
-  #   # For Rails 3.1+ asset pipeline compatibility:
-  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-  #
-  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-  # end
-
-  # Process files as they are uploaded:
-  # process :scale => [200, 300]
-  #
-  # def scale(width, height)
-  #   # do something
-  # end
-
+    def default_url
+      "/assets/fallback/" + [version_name, "default.gif"].compact.join('_')
+    end   
+  
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
+    version :large do
+       process :resize_to_fill => [360, 300]
+    end
+
+    version :thumb do
+      process :resize_to_fill => [75, 75]
+    end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+    def extension_white_list
+       %w(jpg jpeg gif png)
+    end
+end
 
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+# Then add the following to your carrierwave.rb initializer:
+# Configuration for Amazon S3
+CarrierWave.configure do |config|
+  config.fog_credentials = {
+      :provider => 'AWS',
+      :aws_access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :aws_secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'],
+      :region => ENV['S3_REGION']
+    }
 
+  # For testing, upload files to local `tmp` folder.
+  if Rails.env.test? || Rails.env.development?
+    config.storage = :file
+    config.enable_processing = false
+    config.root = "#{Rails.root}/tmp"
+  else
+    config.storage = :fog
+  end
+
+  # To let CarrierWave work on heroku
+  config.cache_dir = "#{Rails.root}/tmp/uploads" 
+  config.fog_directory = ENV['S3_BUCKET_NAME']
 end
