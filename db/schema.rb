@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825130044) do
+ActiveRecord::Schema.define(version: 20150826014222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 20150825130044) do
     t.string   "moms_dads"
     t.string   "sandles_socks"
     t.integer  "user_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "europe_paris"
     t.string   "profile_photo"
     t.string   "drugs"
@@ -115,6 +115,30 @@ ActiveRecord::Schema.define(version: 20150825130044) do
     t.string   "eeny_meeny"
     t.string   "chicken_egg"
     t.string   "calvin_hobbes"
+    t.string   "space"
+    t.string   "beard_moustache"
+    t.string   "beard_bread"
+    t.string   "protoplasm_ectoplasm"
+    t.string   "liberty_diving"
+    t.string   "preteen_tween"
+    t.string   "neither_either"
+    t.string   "rock_lock"
+    t.string   "tang_capri"
+    t.string   "pool_ball"
+    t.string   "golf_fishing"
+    t.string   "red_blue"
+    t.string   "love_hate"
+    t.string   "vim_emacs"
+    t.string   "york_jersey"
+    t.string   "desert_tundra"
+    t.string   "green_ice"
+    t.string   "ball_meth"
+    t.string   "bye_riddance"
+    t.string   "aliefs_beliefs"
+    t.string   "gophers_groundhogs"
+    t.string   "felony_misdemeanor"
+    t.text     "bio"
+    t.string   "whoami"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
