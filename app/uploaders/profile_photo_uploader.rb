@@ -20,13 +20,6 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
     end   
   
   # Create different versions of your uploaded files:
-    version :large do
-       process :resize_to_fill => [360, 300]
-    end
-
-    version :thumb do
-      process :resize_to_fill => [75, 75]
-    end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
