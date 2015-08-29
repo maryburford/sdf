@@ -16,9 +16,14 @@
     - else
       = image_tag("default_profile_photo.png")
   %br
+  .whoami
+    - if @profile.whoami
+      %h3 I am ... #{@profile.whoami}
   .profile_bio
   - if defined? @profile.bio
     <center>
     <b>In 69 characters or less:</b>
     = "#{@profile.bio}"
     </center>
+
+ 

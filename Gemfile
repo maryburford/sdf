@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 #ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'rails', '4.2.3'
 gem 'unf'
 gem 'fog', require: 'fog/aws'
