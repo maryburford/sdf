@@ -6,6 +6,11 @@
   .message-link
     = link_to '', new_message_path({receiver_id: @user.id}), class: "glyphicon glyphicon-envelope"
   %br
+  .turd-button
+    = link_to image_tag('Smiling_poo_emoji.jpg', size: '50x50'), user_add_turd_path({id: @profile.id}), method: :post
+    = @user.turds
+
+  %br
   .answers-show-link
     = link_to "#{@user.user_name}'s Shitty Answers", user_answers_show_path({id: @user.profile.id})
 
@@ -23,4 +28,4 @@
     = "#{@profile.bio}"
     </center>
 
- 
+
