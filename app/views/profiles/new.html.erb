@@ -6,8 +6,8 @@
   <%= f.input :city %>
   <%= f.input :state %>
   <%= f.input :zip_code %>
-  <%= f.input :bio, label: 'Describe yourself in 69 characters', :input_html => {:maxlength => 69, :size => 50}%>
-  <%= f.input :whoami, :collection => ['A shitty dude','Seeking a shitty dude','Both'], :label => 'I am...' %>
+  <%= f.input :bio, label: 'Describe yourself in 69 characters', :input_html => {:maxlength => 69, :size => 50}, required: true%>
+  <%= f.input :whoami, :collection => ['a shitty dude','seeking a shitty dude','both'], required: true, :label => 'I am...' %>
   <%= f.input :sandles_socks, :collection => ['Sandles','Socks','Both'], :label => 'Sandles or Socks' %>
   <%= f.file_field :profile_photo %>
   <%= f.hidden_field :profile_photo_cache %>

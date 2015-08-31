@@ -3,15 +3,20 @@ class ProfilesController < ApplicationController
 
  def new
  @profile = Profile.new
+ @profile.user = current_user
+ params[:user_id] = current_user.id
+
  end
 
  def create
   @profile = Profile.new(profile_params)
   @profile.user = current_user
-
   if @profile.save
-  redirect_to @profile
+    flash[:success] = "Welcome to Shitty Dude Finder!"
+    redirect_to @profile
   else
+    flash[:danger] = "Fix the input here, bud!"
+    redirect_to new_profile_path
   end
  end
 

@@ -1,6 +1,8 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
   mount_uploader :profile_photo, ProfilePhotoUploader
+  validates :whoami, presence: true
+  validates :bio, presence: true
 
    QUESTIONS = [
 [:pizza_beer, "Pizza or Beer?", ["Pizza","Beer","Both"]],
