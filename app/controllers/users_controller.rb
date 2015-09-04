@@ -14,6 +14,17 @@ class UsersController < ApplicationController
 
   end
 
+  def add_turd_matches_view
+    @profile = Profile.find(params[:id])
+    @user = @profile.user
+
+    @user.turds = @user.turds + 1
+    @user.save!
+
+    redirect_to profiles_show_path({id: params[:id]})
+
+  end
+
 private
 
   def user_params
