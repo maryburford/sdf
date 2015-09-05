@@ -63,7 +63,7 @@ class MessagesController < ApplicationController
 
 
   def message_params
-    params.require(:message).permit(:body, :subject, :sender_id, :receiver_id, :read_at, :deleted, :reservation_id)
+    params.require(:message).permit(:body, :subject, :sender_id, :receiver_id, :read_at, :deleted)
   end
 
 
