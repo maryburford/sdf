@@ -16,6 +16,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 = csrf_meta_tags
 = stylesheet_link_tag    'application', media: 'all' 
+
 </head>
 <body>
 .navbar.navbar-default{:role => 'navigation'}
@@ -52,5 +53,6 @@
       %div{class: "alert alert-#{key}"} 
         = value
 </body>
-= yield 
+= yield
+= render 'layouts/footer' 
 </html>
