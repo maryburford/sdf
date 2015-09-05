@@ -22,7 +22,6 @@ class MessagesController < ApplicationController
   def create
     #@message = Message.new(params[:message])
     @message = Message.new(message_params)
-
     @message.sender_id = current_user.id
 
     if @message.save
@@ -39,6 +38,10 @@ class MessagesController < ApplicationController
      @messages = current_user.sent_messages
    elsif params[:mailbox] == "inbox"
      @messages = current_user.received_messages
+     @messages.each do |m|
+        m.touch(:read_at)
+      end
+
    #elsif params[:mailbox] == "archieved"
     # @messages = @user.archived_messages
    end
