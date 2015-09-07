@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def matches
-  	@random_users = User.joins(:profile).select('profiles.id, users.user_name, users.id, profiles.profile_photo, users.turds').limit(5).order("RANDOM()")
+  	@random_users = User.joins(:profile).select('profiles.id, users.user_name, users.id, profiles.profile_photo, users.turds').limit(20).order("RANDOM()")
   end
 
   def add_turd
@@ -12,6 +12,9 @@ class UsersController < ApplicationController
 
     redirect_to profiles_show_path({id: params[:id]})
 
+  end
+
+  def delete
   end
 
   def add_turd_matches_view

@@ -12,16 +12,16 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
 
     if @profile.save
-      flash[:success] = "Welcome to Shitty Dude Finder!"
+      flash[:success] =  "Welcome to Shitty Dude Finder!"
       redirect_to @profile
     else
-      flash[:danger] = "Fix the input here, bud!"
+      flash[:danger] = "Fix the input here, bud! You probably need a bio or to tell us what you are looking for."
       redirect_to new_profile_path
     end
   end
 
  def show
-   if current_user
+   if current_user.profile
      @profile = Profile.find(current_user.profile.id)
      @user = @profile.user
    else

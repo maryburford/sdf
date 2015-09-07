@@ -10,18 +10,17 @@
 					= f.file_field :profile_photo
 					= f.hidden_field :profile_photo_cache 
 					= f.input :account_id, :as => :hidden, :input_html => { :value => current_user.id }
-					= f.button :submit, "Update Photo"
+					= f.button :submit, "Update Photo", :class => 'btn btn-small'
 			- else
 				= image_tag("default_profile_photo.png")
 				= simple_form_for @profile,:method => 'update_photo' do |f| 
 					= f.file_field :profile_photo
 					= f.hidden_field :profile_photo_cache 
 					= f.input :account_id, :as => :hidden, :input_html => { :value => current_user.id }
-					= f.button :submit, "Add Photo"
+					= f.button :submit, "Add Photo", :class => 'btn btn-small'
 
 	
 		.col-md-4
-			<br>
 			<br>
 			<br>
 			<br>
@@ -32,3 +31,14 @@
 			<br> 
 			.whoami
 				I am ... #{@profile.whoami}
+			<br>
+			<br>
+			<br>
+			= image_tag('Smiling_poo_emoji.jpg', size: '50x50')
+			I have been turded #{@profile.user.turds} times! Congratulations!
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			= button_to "Cancel my account", user_registration_path, :confirm => "Are you sure?", :method => :destroy, :class => 'btn btn-small btn-danger'

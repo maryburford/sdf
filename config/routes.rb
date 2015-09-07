@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
     get '/users/matches/:id'  => 'users#matches', as: :user_matches
     post '/users/add_turd' => 'users#add_turd', as: :user_add_turd
-
+    
     authenticated :user do
       root :to => 'profiles#show', as: :authenticated_root
     end
