@@ -36,8 +36,8 @@
     .collapse.navbar-collapse#navbartarget{:role => 'navigation'}
       %ul.nav.navbar-nav
         - if current_user
-          %li.hellomessage Hello, #{current_user.user_name.humanize}s
-          - if current_user.profile
+          %li.hellomessage Hello, #{current_user.user_name.humanize}
+          - if current_user.profile.id
             %li
               = link_to 'Answer Shitty Questions', edit_profile_path(current_user)
           %li

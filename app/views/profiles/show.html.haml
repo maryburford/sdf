@@ -19,8 +19,8 @@
 					= f.input :account_id, :as => :hidden, :input_html => { :value => current_user.id }
 					= f.button :submit, "Add Photo", :class => 'btn btn-small'
 
-	
-		.col-md-4
+
+		.col-md-8
 			<br>
 			<br>
 			<br>
@@ -38,7 +38,6 @@
 			I have been turded #{@profile.user.turds} times! Congratulations!
 			<br>
 			<br>
+			= button_to "Cancel My Account", user_registration_path, :confirm => "Are you sure?", :method => :delete, :class => 'btn btn-small btn-danger' 
 			<br>
-			<br>
-			<br>
-			= button_to "Cancel my account", user_registration_path, :confirm => "Are you sure?", :method => :destroy, :class => 'btn btn-small btn-danger'
+			= link_to "Edit My Profile", edit_profile_profile_path(@user.id), :method => :edit, :class => 'btn btn-small btn-warning'

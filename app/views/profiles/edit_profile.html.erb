@@ -1,0 +1,16 @@
+
+<div class = 'container'>
+<% if user_signed_in? %>
+<%= current_user.user_name %> 
+<%= simple_form_for @profile do |f| %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :zip_code %>
+  <%= f.input :bio, label: 'Describe yourself in 69 characters', :input_html => {:maxlength => 69, :size => 50}, required: true%>
+  <%= f.input :whoami, :collection => ['a shitty dude','seeking a shitty dude','both'], required: true, :label => 'I am...' %>
+
+  <%= f.submit "Update and Answer More Questions"%>
+<% end %>
+<% end %>
+
+</div>

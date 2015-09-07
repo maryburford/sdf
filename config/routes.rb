@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
     get '/users/matches/:id'  => 'users#matches', as: :user_matches
     post '/users/add_turd' => 'users#add_turd', as: :user_add_turd
-    
+
     authenticated :user do
       root :to => 'profiles#show', as: :authenticated_root
     end
@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     get '/profiles/show_user/:id(.:format)' => 'profiles#show_user', :as => :profiles_show
     get '/profiles/shitty_answers/:id(.:format)' => 'profiles#shitty_answers', :as => :answers_show
     get '/profiles/user_answers/:id(.:format)' => 'profiles#user_answers', :as => :user_answers_show
+    post '/profiles/:id/edit(.:format)' => 'profiles#edit_profile', :as => :edit_profile_profile
+
   #  post '/messages/new' => 'messages#create'
   end
 
