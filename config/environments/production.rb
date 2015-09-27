@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.action_mailer.default_url_options = { :host => 'enigmatic-cove-5128.herokuapp.com' }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -76,4 +77,22 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+  address: "smtp.zoho.com",
+  port: 465,
+  domain: 'shittydudefinder.com',
+  authentication: "plain",
+  ssl: true,  
+  tls: true,
+  enable_starttls_auto: true,
+  user_name: ENV["ZOHO_USERNAME"],
+  password: ENV["ZOHO_PASSWORD"]
+}
+
+
 end
